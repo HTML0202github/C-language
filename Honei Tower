@@ -1,0 +1,24 @@
+#include<stdio.h>
+
+void Honei(int n,char a,char b,char c){
+    //a=起始，b=緩衝，c=終點
+    if(n==1){
+        //最後一個底盤會從A放到終點C
+        printf("盤子從%c移到%c\n", a,c);
+}else{
+    //可以想象成會先把所有小的的放到B
+    Honei(n-1,a,c,b);
+    //把大的移到C的位子
+    printf("盤子從%c移到%c\n",a,c);
+    //把中間小的移到C打的位子上
+    Honei(n-1,b,a,c);
+    
+}
+}
+int main(){
+    int n;
+    printf("請輸入Disk的數量：");
+    scanf("%d",&n);
+    Honei(n,'A','B','C');
+    return 0;
+}
